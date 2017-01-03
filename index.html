@@ -2,7 +2,7 @@
 <html ng-app="listpp" lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Enkore Assignment</title>
+        <title>Enkore Assignment - Room Reservation</title>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -30,9 +30,11 @@
             </form>
             <table border=1  class="table table-striped table-condensed table-hover">
                 <thead>
-                <th style="width:10%;">ID&nbsp;              </th>
-                <th style="width:60%;">Room number&nbsp;     </th>
-                <th style="width:30%;">Action&nbsp;          </th>
+                    <tr>
+                        <th style="width:10%;">ID&nbsp;              </th>
+                        <th style="width:60%;">Room number&nbsp;     </th>
+                        <th style="width:30%;">Action&nbsp;          </th>
+                    </tr>
                 </thead>
                 <tbody ng-init="get_room()">
                     <tr ng-repeat="room in pagedItems">
@@ -41,8 +43,8 @@
                         <td>
                             <a href="" ng-click="room_edit(room.id)" class="btn btn-info  active">Edit</a>
                             <a href="" ng-click="room_delete(room.id)" class="btn btn-danger active">Delete</a>
-                            <a href="" ng-show="room.status == 0" ng-click="room_book(room.id)" class="btn btn-success active" >Reserve Room</a>
-                            <a href="" ng-show="room.status == 1" ng-click="room_booking_cancel(room.id)" class="btn btn-warning active" >Cancel Reservation</a>
+                            <a href="" ng-show="room.status === 0" ng-click="room_book(room.id)" class="btn btn-success active" >Reserve Room</a>
+                            <a href="" ng-show="room.status === 1" ng-click="room_booking_cancel(room.id)" class="btn btn-warning active" >Cancel Reservation</a>
                         </td>
                     </tr>
                 </tbody>
